@@ -1,0 +1,24 @@
+*{
+    background-color: wheat;
+}
+.border{
+    border: solid black 3px;
+    margin-top: calc(30vh - 35px);
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: rgb(230, 191, 167);
+}
+.sty{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgb(230, 191, 167);
+}
+.input{
+    background-color: rgb(230, 191, 167);
+    width: 100px;
+    padding: 100px;
+}

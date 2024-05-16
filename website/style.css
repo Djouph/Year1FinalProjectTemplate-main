@@ -1,0 +1,21 @@
+*{
+    background-color: wheat;
+}
+.login{
+    border: solid black 3px;
+    margin-top: calc(30vh - 35px);
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: rgb(230, 191, 167);
+}
+.log{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 191, 167);
+    font-size: 50px;
+}   
+.why{
+    background-color: rgb(230, 191, 167);
+}
