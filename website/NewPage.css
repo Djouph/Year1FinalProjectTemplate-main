@@ -19,6 +19,6 @@
 }
 .input{
     background-color: rgb(230, 191, 167);
-    width: 100px;
-    padding: 100px;
-}
+    resize:none
+    
+    }

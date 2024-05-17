@@ -91,7 +91,7 @@ class Program
     {
 
       (string username, string password) = request.GetBody<(string, string)>();
-      
+
       User user = new User(username, password);
 
       databaseContext.Users.Add(user);
@@ -99,13 +99,23 @@ class Program
       response.Write(user.Id);
 
     }
+    else if (absPath == "/Add")
+    {
+      (string date, string text, int userId) = request.GetBody<(string, string, int)>();
+
+      Page page = new Page(date, text, userId);
+
+      databaseContext.Pages.Add(page);
+    }
   }
 }
 
 class DatabaseContext : DbContextWrapper
 {
   public DbSet<User> Users { get; set; }
+  public DbSet<Page> Pages { get; set; }
   public DatabaseContext() : base("Database") { }
+
 }
 
 class User(string username, string password)
@@ -114,4 +124,17 @@ class User(string username, string password)
   public int Id { get; set; }
   public string Username { get; set; } = username;
   public string Password { get; set; } = password;
+}
+
+class Page(string date, string text, int userId)
+{
+  [Key]
+  public int Id { get; set; }
+  public string Date { get; set; } = date;
+  public string Text { get; set; } = text;
+
+  public int UserId { get; set; } = userId;
+
+  [ForeignKey("UserId")]
+  public User? User { get; set; }
 }
