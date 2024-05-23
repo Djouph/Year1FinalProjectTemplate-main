@@ -94,9 +94,9 @@ class Program
 
       User user = new User(username, password);
 
-      databaseContext.Users.Add(user);
+      var userA = databaseContext.Users.Add(user);
 
-      response.Write(user.Id);
+      response.Write(userA!.Entity.Id);
 
     }
     else if (absPath == "/Add")
@@ -106,6 +106,19 @@ class Program
       Page page = new Page(date, text, userId);
 
       databaseContext.Pages.Add(page);
+    }
+    else if (absPath == "/getPreviews")
+    {
+      var previews = databaseContext.Pages.Select(
+        page => new
+        {
+          id = page.Id,
+          date = page.Date,
+          text = page.Text,
+        }
+      ).ToArray();
+
+      response.Write(previews);
     }
   }
 }
