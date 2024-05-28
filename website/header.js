@@ -6,7 +6,7 @@ let logOutButton = document.getElementById("logOutButton");
 let Addpage = document.getElementById("Addpage");
 
 logOutButton.onclick = function () {
-    Cookies.set("id", null);
+    Cookies.remove("id");
 
     top.location.href = "index.html";
 }

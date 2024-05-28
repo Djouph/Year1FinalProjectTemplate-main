@@ -11,6 +11,7 @@ let date = document.getElementById("date");
 let text = document.getElementById("text");
 
 add.onclick = async function () {
+    console.log(date.value);
     send("/Add", { date: date.value, text: text.value ,userId: Cookies.get("id")});
 
     top.location.href = "home.html";
