@@ -45,4 +45,9 @@
   .hidden {
     display: none !important;
   }
-  
+  #home{
+    font-size: larger;
+  }
+  #logOutButton{
+    font-size: larger;
+  }

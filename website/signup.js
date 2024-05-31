@@ -14,9 +14,8 @@ signup.onclick = async function () {
     /**@type {number} */
     let id = await send("/signIn", { username: username.value, password: password.value });
     
-    Cookies.set("id", id);
 
-    top.location.href = "home.html";
+    top.location.href = "index.html";
 };
 
 

@@ -3,7 +3,7 @@ import Cookies from "./_cookies";
 /**@type {HTMLButtonElement} */
 let logOutButton = document.getElementById("logOutButton");
 /**@type {HTMLButtonElement} */
-let Addpage = document.getElementById("Addpage");
+let Home = document.getElementById("home");
 
 logOutButton.onclick = function () {
     Cookies.remove("id");
@@ -11,6 +11,6 @@ logOutButton.onclick = function () {
     top.location.href = "index.html";
 }
 
-Addpage.onclick = function () {
-    top.location.href = "NewPage.html";
+Home.onclick = function () {
+    top.location.href = "home.html";
 }

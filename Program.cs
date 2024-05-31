@@ -120,6 +120,22 @@ class Program
 
       response.Write(previews);
     }
+    else if(absPath == "/getPage"){
+      int pageId = request.GetBody<int>();
+
+      Page page = databaseContext.Pages.Find(pageId)!;
+
+      var data = new
+      {
+        Date = page.Date,
+        text = page.Text,
+      };
+
+      // Console.WriteLine("data: ");
+      Console.WriteLine(data);
+
+      response.Write(data);
+    }
   }
 }
 

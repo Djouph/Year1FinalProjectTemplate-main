@@ -18,13 +18,13 @@ for (let i=0; i<previews.length; i++){
  */
 
 function createPreviewA(preview) {
+  let div = document.createElement("div");
   let a = document.createElement("a");
   a.classList.add("preview");
   a.href = "page.html?pageId=" + preview.id;
+  a.innerText = preview.date;
 
-  let titleDiv = document.createElement("div");
-  titleDiv.classList.add("Page");
-  titleDiv.innerText = preview.date;
-  a.appendChild(titleDiv);
-  return a;
+  div.appendChild(a);
+
+  return div;
 }
