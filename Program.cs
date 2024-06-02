@@ -109,7 +109,10 @@ class Program
     }
     else if (absPath == "/getPreviews")
     {
-      var previews = databaseContext.Pages.Select(
+      int userId = request.GetBody<int>();
+      var previews = databaseContext.Pages.Where(
+        page => page.UserId == userId
+      ).Select(
         page => new
         {
           id = page.Id,

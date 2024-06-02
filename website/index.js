@@ -20,7 +20,7 @@ logInButton.onclick = async function () {
         alert("Username or Password are incorect");
     }
     else{
-        top.location.href = "home.html";
+        top.location.href = "home.html";    
     }
 };
 

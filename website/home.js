@@ -1,9 +1,13 @@
 import { send } from "./_utils";
+import Cookies from "./_cookies";
+
+let userid = Cookies.get("id");
+console.log(userid);
 
 /**@type {HTMLDivElement} */
 let previewsContainer = document.getElementById("previewsContainer");
 
-let previews = await send("/getPreviews");
+let previews = await send("/getPreviews", userid);
 console.log(previews);
 
 for (let i=0; i<previews.length; i++){

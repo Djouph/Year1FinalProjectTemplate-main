@@ -1,7 +1,18 @@
 * {
     background-color: wheat;
+    font-family: cursive;
 }
 
 .preview {
     border: solid black 3px;
+}
+
+#previewsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+#add{
+    margin-left: auto;
+    
 }
