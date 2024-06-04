@@ -51,3 +51,9 @@
   #logOutButton{
     font-size: larger;
   }
+  #logoutdiv{
+    font-size: larger;
+  }
+  .hidden{
+    display: none !important;
+  }

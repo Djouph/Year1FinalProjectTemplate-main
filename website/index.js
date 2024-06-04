@@ -1,30 +1,49 @@
-import Cookies from "./_cookies";
 import { send } from "./_utils";
+import Cookies from "./_cookies";
 
-/**@type {HTMLButtonElement} */
-let signup = document.getElementById("signup");
-/**@type {HTMLButtonElement} */
-let logInButton = document.getElementById("logInButton");
-/**@type {HTMLInputElement} */
-let username = document.getElementById("Username");
-/**@type {HTMLInputElement} */
-let password = document.getElementById("Password");
+let userid = Cookies.get("id");
+console.log(userid);
 
-logInButton.onclick = async function () {
-    /**@type {number} */
-    let id = await send("/logIn", { username: username.value, password: password.value });
-    
-    Cookies.set("id", id);
+/**@type {HTMLDivElement} */
+let previewsContainer = document.getElementById("previewsContainer");
 
-    if(id == null){
-        alert("Username or Password are incorect");
-    }
-    else{
-        top.location.href = "home.html";    
-    }
-};
+let previews = await send("/getPreviews", userid);
+console.log(previews);
 
+if(userid != undefined){
 
-signup.onclick = function () {
-    top.location.href = "sighup.html";
+  for (let i=0; i<previews.length; i++){
+    let previewA = createPreviewA(previews[i])
+    previewsContainer.appendChild(previewA);
+  }
+}
+
+/**
+ * @typedef preview
+ * @property {number} id
+ * @property {string} date
+ */
+
+function createPreviewA(preview) {
+  let div = document.createElement("div");
+  let a = document.createElement("a");
+  a.classList.add("preview");
+  a.href = "page.html?pageId=" + preview.id;
+  a.innerText = preview.date;
+
+  div.appendChild(a);
+
+  return div;
+}
+
+/** @type {HTMLAnchorElement} */
+let add = document.getElementById("add");
+
+add.onclick = function(){
+  if(userid == undefined){
+    alert("You nead to log in to use this function");
+  }
+  else{
+    top.location.href = "NewPage.html";
+  }
 }

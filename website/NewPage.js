@@ -14,9 +14,9 @@ add.onclick = async function () {
     console.log(date.value);
     send("/Add", { date: date.value, text: text.value ,userId: Cookies.get("id")});
 
-    top.location.href = "home.html";
+    top.location.href = "index.html";
 };
 
 back.onclick = function () {
-    top.location.href = "home.html";
+    top.location.href = "index.html";
 }

@@ -10,15 +10,21 @@ let username = document.getElementById("Username");
 /**@type {HTMLInputElement} */
 let password = document.getElementById("Password");
 
-signup.onclick = async function () {
+logInButton.onclick = async function () {
     /**@type {number} */
-    let id = await send("/signIn", { username: username.value, password: password.value });
+    let id = await send("/logIn", { username: username.value, password: password.value });
     
+    Cookies.set("id", id);
 
-    top.location.href = "login.html";
+    if(id == null){
+        alert("Username or Password are incorect");
+    }
+    else{
+        top.location.href = "index.html";    
+    }
 };
 
 
-logInButton.onclick = function () {
+signup.onclick = function () {
     top.location.href = "index.html";
 }
